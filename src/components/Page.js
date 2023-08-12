@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Card from "./Card";
 
 const Page = () => {
-	const [ticdata, setData] = useState([]);
+	const [data, setData] = useState([]);
 	const apiUrl = "https://apimocha.com/quicksell/data";
 
 	useEffect(() => {
@@ -30,36 +31,21 @@ const Page = () => {
 				<option>L</option>
 				<option>XL</option>
 			</select> */}
-			<h1>{ticdata.id}</h1>
+			{/* <h1>{ticdata.id}</h1> */}
 			{console.log("hiii")}
-			{console.log(ticdata)}
-			{ticdata.length > 0 && (
+			{/* {console.log(ticdata)} */}
+			{/* {data.tickets?.length > 0 && (
 				<ul>
-					{ticdata.map((item) => (
+					{data.tickets?.map((item) => (
 						<li key={item.id}>{item.title}</li>
 					))}
 				</ul>
-			)}
-			{/* {data.map((tic) => (
-				<a
-					href="#"
-					class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-				>
-					<div className="flex flex-row">
-						<div class="flex-shrink-0">
-							<img
-								class="w-8 h-8 rounded-full"
-								src="/docs/images/people/profile-picture-1.jpg"
-								alt="Neil image"
-							/>
-						</div>
-						<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-							{tic.id}
-						</h5>
-					</div>
-					<p class="font-normal text-gray-700 dark:text-gray-400">...</p>
-				</a>
-			))} */}
+			)} */}
+			{data.tickets?.map((tic) => (
+				<div className="mb-3">
+					<Card tic />
+				</div>
+			))}
 		</div>
 	);
 };
