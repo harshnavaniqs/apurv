@@ -41,9 +41,9 @@ const Page = () => {
 					))}
 				</ul>
 			)} */}
-			{data.tickets?.map((tic) => (
+			{data.tickets?.map((ticket) => (
 				<div className="mb-3">
-					<Card tic />
+					<Card data={ticket} />
 				</div>
 			))}
 		</div>
