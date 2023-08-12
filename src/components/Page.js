@@ -5,7 +5,7 @@ import Card from "./Card";
 const Page = () => {
 	const [data, setData] = useState([]);
 	const [sortBy, setSortBy] = useState("title");
-	const [tics, setTics] = useState(data);
+	const [tics, setTics] = useState([]);
 	const apiUrl = "https://apimocha.com/quicksell/data";
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ const Page = () => {
 	}, []);
 
 	const sortTickets = (key) => {
-		const sortedTickets = [...tics.tickets].sort((a, b) => {
+		const sortedTickets = [...data.tickets].sort((a, b) => {
 			if (key === "title") {
 				return a.title.localeCompare(b.title);
 			}
@@ -32,11 +32,12 @@ const Page = () => {
 		});
 
 		setTics(sortedTickets);
-		console.log(tics);
+		console.log(sortedTickets);
 	};
 
 	const handleSortChange = (event) => {
 		const selectedValue = event.target.value;
+		console.log(selectedValue);
 		setSortBy(selectedValue);
 		sortTickets(selectedValue);
 	};
@@ -58,7 +59,7 @@ const Page = () => {
 				<option>XL</option>
 			</select> */}
 
-			{tics.tickets?.map((ticket) => (
+			{tics.map((ticket) => (
 				<div className="mb-3">
 					<Card data={ticket} />
 				</div>
