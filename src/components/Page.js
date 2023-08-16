@@ -11,7 +11,7 @@ const Page = () => {
 	const [priorities, setPriorities] = useState(new Set());
 	const [categories, setCategories] = useState(["All"]);
 	const [currentCategory, setCurrentCategory] = useState("");
-	const apiUrl = "https://apimocha.com/quicksell/data";
+	const apiUrl = "https://api.quicksell.co/v1/internal/frontend-assignment";
 	const priorityMapping = {
 		0: "No Priority",
 		1: "Low",
